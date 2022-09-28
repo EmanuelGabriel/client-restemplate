@@ -1,5 +1,12 @@
-{"properties": [{
-  "name": "chave.gw.dev.app-key",
-  "type": "java.lang.String",
-  "description": "A description for 'chave.gw.dev.app-key'"
-}]}
+{"properties": [
+  {
+    "name": "chave.gw.dev.app-key",
+    "type": "java.lang.String",
+    "description": "A description for 'chave.gw.dev.app-key'"
+  },
+  {
+    "name": "base.uri.sandbox.bb",
+    "type": "java.lang.String",
+    "description": "A description for 'base.uri.sandbox.bb'"
+  }
+]}
