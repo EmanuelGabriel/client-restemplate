@@ -1,4 +1,4 @@
-package com.example.client;
+package com.example.client.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ import org.springframework.security.oauth2.core.AuthorizationGrantType;
  */
 
 @Configuration
-public class OAuthClientConfiguration {
+public class OAuthClientConfig {
 
 	
     // Criar o registro do cliente API SANDBOX BB
@@ -55,8 +55,7 @@ public class OAuthClientConfiguration {
         return new InMemoryOAuth2AuthorizedClientService(clientRegistrationRepository);
     }
 
-    // Crie o gerente de cliente e o gerente de serviço autorizados usando o
-    // beans criados e configurados acima
+    // Crie o gerenciador de cliente e o gerenciador de serviço autorizados usando o beans criados e configurados acima
     @Bean
     public AuthorizedClientServiceOAuth2AuthorizedClientManager authorizedClientServiceAndManager (
             ClientRegistrationRepository clientRegistrationRepository,
@@ -74,5 +73,6 @@ public class OAuthClientConfiguration {
 
         return authorizedClientManager;
     }
+  
 
 }
