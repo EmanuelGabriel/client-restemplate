@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "chave.gw.dev.app-key",
+  "type": "java.lang.String",
+  "description": "A description for 'chave.gw.dev.app-key'"
+}]}
