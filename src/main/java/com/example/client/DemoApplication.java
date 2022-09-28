@@ -148,7 +148,7 @@ public class DemoApplication { //implements CommandLineRunner {
 		ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET, request, String.class);
 
 		String resultado = response.getBody();
-		logger.info("Response/Scheduled: " + resultado);
+		logger.info("Response/Job: " + resultado);
 
 
 	}
