@@ -65,4 +65,25 @@ public class ArrecadacaoQRcodeService {
 	}
 	
 	
+	public GuiaArrecadacaoQrCodeResponseDTO buscarArrecadacaoQrCodePagamentoPixPorId(String txid, String numeroConvenio) {
+		LOG.info("Consultar um QR Code de pagamentos instantâneos (PIX) por guia de recebimento (com ou sem código de barras) por ID - {};{}", txid, numeroConvenio);
+		
+		var token = tokenService.getToken();
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Authorization", "Bearer " + token);
+		var request = new HttpEntity<>(headers);
+		
+		// https://api.sandbox.bb.com.br/pix-bb/v1/arrecadacao-qrcodes/:id?gw-dev-app-key=d27b17790cffabc0136ce17d20050356b9a1a5b2&numeroConvenio=78806
+		var uri = baseUriSandboxBB + "/arrecadacao-qrcodes/" + txid +  "?gw-dev-app-key=" + chaveDevAppKey + "&" + "numeroConvenio=" + numeroConvenio;
+		LOG.info("URI: {}", uri);
+		
+		String response = restTemplate.exchange(uri, HttpMethod.GET, request, String.class).getBody();
+		LOG.info("response: " + response);
+		
+		GuiaArrecadacaoQrCodeResponseDTO dto = JSONUtil.convertJsonToJava(response, GuiaArrecadacaoQrCodeResponseDTO.class);
+
+		return dto;
+	}
+	
 }

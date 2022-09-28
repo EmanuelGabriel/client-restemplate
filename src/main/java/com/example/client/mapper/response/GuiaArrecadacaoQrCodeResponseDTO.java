@@ -9,13 +9,15 @@ import java.util.List;
  */
 public class GuiaArrecadacaoQrCodeResponseDTO {
 
+	private String codigoGuiaRecebimento;
 	private String codigoConciliacaoSolicitante;
 	private String emailDevedor;
 	private int codigoPaisTelefoneDevedor;
 	private int dddTelefoneDevedor;
 	private String numeroTelefoneDevedor;
 	private String timestampCriacaoSolicitacao;
-	private long quantidadeSegundoExpiracao; // default: 3600;
+	// default: 3600;
+	private long quantidadeSegundoExpiracao; 
 	private String estadoSolicitacao;
 	private String numeroVersaoSolicitacaoPagamento;
 	private String linkQrCode;
@@ -23,8 +25,10 @@ public class GuiaArrecadacaoQrCodeResponseDTO {
 	private String cpfDevedor;
 	private String cnpjDevedor;
 	private String nomeDevedor;
-	private double valorOriginalSolicitacao; // 300.00,
-	private String codigoSolicitacaoBancoCentralBrasil; // e2572aa4-52d6-4527-bc69-60c0699ea50d - CHAVE PIX DO ENTE PÚBLICO,
+	// 300.00,
+	private double valorOriginalSolicitacao; 
+	// e2572aa4-52d6-4527-bc69-60c0699ea50d - CHAVE PIX DO ENTE PÚBLICO
+	private String codigoSolicitacaoBancoCentralBrasil; 
 	private String descricaoSolicitacaoPagamento;
 	private List<ListaInforAdicionalResponseDTO> listaInformacaoAdicional;
 	private String codigoIdentificadorPagamento;
@@ -34,9 +38,7 @@ public class GuiaArrecadacaoQrCodeResponseDTO {
 	private int cnpjPagador;
 	private String nomeClientePagador;
 	private String textoInformativoPagador;
-	private String expiracaoToken;
-	private String token;
-	
+
 	public GuiaArrecadacaoQrCodeResponseDTO() {
 		super();
 	}
@@ -141,14 +143,6 @@ public class GuiaArrecadacaoQrCodeResponseDTO {
 		return textoInformativoPagador;
 	}
 
-	public String getExpiracaoToken() {
-		return expiracaoToken;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
 	public void setCodigoConciliacaoSolicitante(String codigoConciliacaoSolicitante) {
 		this.codigoConciliacaoSolicitante = codigoConciliacaoSolicitante;
 	}
@@ -249,13 +243,12 @@ public class GuiaArrecadacaoQrCodeResponseDTO {
 		this.textoInformativoPagador = textoInformativoPagador;
 	}
 
-	public void setExpiracaoToken(String expiracaoToken) {
-		this.expiracaoToken = expiracaoToken;
+	public String getCodigoGuiaRecebimento() {
+		return codigoGuiaRecebimento;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public void setCodigoGuiaRecebimento(String codigoGuiaRecebimento) {
+		this.codigoGuiaRecebimento = codigoGuiaRecebimento;
 	}
-
 
 }

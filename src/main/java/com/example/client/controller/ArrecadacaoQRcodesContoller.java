@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,6 +36,15 @@ public class ArrecadacaoQRcodesContoller {
 			@RequestParam(value = "codigoGuiaRecebimento") String codigoGuiaRecebimento) {
 		LOG.info("GET /arrecadacao-qrcodes - {};{}", numeroConvenio, codigoGuiaRecebimento);
 		var resposta = arrecadacaoQRcodeService.buscarArrecadacaoQrCodePagamentoPix(numeroConvenio, codigoGuiaRecebimento);
+		return resposta != null ? ResponseEntity.ok().body(resposta) : ResponseEntity.notFound().build();
+	}
+	
+	@GetMapping(value = "/{txid}")
+	public ResponseEntity<GuiaArrecadacaoQrCodeResponseDTO> buscarArrecadacaoQrCodePagamentoPixPorID(
+			@PathVariable String txid,
+			@RequestParam(value = "numeroConvenio") String numeroConvenio) {
+		LOG.info("GET /arrecadacao-qrcodes/{} - {}", txid, numeroConvenio);
+		var resposta = arrecadacaoQRcodeService.buscarArrecadacaoQrCodePagamentoPixPorId(txid, numeroConvenio);
 		return resposta != null ? ResponseEntity.ok().body(resposta) : ResponseEntity.notFound().build();
 	}
 	
