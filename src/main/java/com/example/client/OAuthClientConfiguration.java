@@ -13,6 +13,13 @@ import org.springframework.security.oauth2.client.registration.ClientRegistratio
 import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 
+
+/**
+ * 
+ * @author emanuel.sousa
+ *
+ */
+
 @Configuration
 public class OAuthClientConfiguration {
 
